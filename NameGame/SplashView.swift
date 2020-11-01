@@ -8,42 +8,29 @@
 import SwiftUI
 
 struct SplashView: View {
-    
-    @State var animate: Bool = false
     @State var endSplash: Bool = false
     var splashImage: Image = Image("splashIcon")
     
     var body: some View {
-        
-        ZStack {
-            MainMenuView()
-            
+                                
             ZStack {
                 Color("Primary Dark Blue").ignoresSafeArea()
-                
-                splashImage.resizable()
-                    .aspectRatio(contentMode: animate ? .fill : .fit)
-                    .frame(width: animate ? nil :  /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: animate ? nil : /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    .scaleEffect(animate ? 3: 1)
-                    .frame(width: UIScreen.main.bounds.width)
                 CircleImageView(image: splashImage)
                 
+                if endSplash {
+                    MainMenuView()
+                }
             }
             .ignoresSafeArea(.all, edges: .all)
             .onAppear(perform: {
-                splashAnimation()
+                splashDelay()
             })
-            .opacity(endSplash ? 0 : 1)
-        }
+            .phoneOnlyStackNavigationView()
     }
     
-    func splashAnimation() {
+    func splashDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            withAnimation(Animation.easeIn(duration: 0.45)) {
-                animate.toggle()
-            }
-            
-            withAnimation(Animation.easeOut(duration: 0.35)) {
+            withAnimation(Animation.linear(duration: 1.35)) {
                 endSplash.toggle()
             }
         }
@@ -53,5 +40,7 @@ struct SplashView: View {
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         SplashView()
+            .previewDevice("iPhone 11 Pro Max")
+            .previewLayout(.device)
     }
 }
