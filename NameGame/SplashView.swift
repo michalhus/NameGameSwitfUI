@@ -14,8 +14,9 @@ struct SplashView: View {
     var splashImage: Image = Image("splashIcon")
     
     var body: some View {
+        
         ZStack {
-            HomeView()
+            MainMenuView()
             
             ZStack {
                 Color("Primary Dark Blue").ignoresSafeArea()

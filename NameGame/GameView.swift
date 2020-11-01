@@ -1,25 +1,24 @@
 //
-//  HomeView.swift
+//  GameView.swift
 //  NameGame
 //
-//  Created by Michal Hus on 10/31/20.
+//  Created by Michal Hus on 11/1/20.
 //
 
 import SwiftUI
 
-struct HomeView: View {
-    
+struct GameView: View {
     var body: some View {
+        
         VStack {
             List(0..<5) { i in
                 Text("Item - \(i)")
             }
-        }
-    }
+        }    }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        SplashView()
+        GameView()
     }
 }
