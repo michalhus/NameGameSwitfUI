@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E31CEFC0254F732A006CFEE8 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */; };
+		E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */; };
+		E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */; };
+		E31CEFE8254F784C006CFEE8 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFE7254F784C006CFEE8 /* ProfileService.swift */; };
+		E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */; };
 		E3EF91A9254E2D61002ADFB0 /* NameGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF91A8254E2D61002ADFB0 /* NameGameApp.swift */; };
 		E3EF91AB254E2D61002ADFB0 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */; };
 		E3EF91AD254E2D63002ADFB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3EF91AC254E2D63002ADFB0 /* Assets.xcassets */; };
@@ -39,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
+		E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		E31CEFE7254F784C006CFEE8 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesAPI.swift; sourceTree = "<group>"; };
 		E3EF91A5254E2D61002ADFB0 /* NameGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3EF91A8254E2D61002ADFB0 /* NameGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGameApp.swift; sourceTree = "<group>"; };
 		E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -84,6 +94,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E31CEFC4254F7340006CFEE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */,
+				E3F1F5CC254E6DEE0053B11C /* GameView.swift */,
+				E3EF91DD254E386B002ADFB0 /* SplashView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E31CEFC8254F7349006CFEE8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E31CEFE7254F784C006CFEE8 /* ProfileService.swift */,
+				E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */,
+				E31CEFCC254F7352006CFEE8 /* DTO */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E31CEFCC254F7352006CFEE8 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		E31CEFDE254F7578006CFEE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */,
+				E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E3EF919C254E2D61002ADFB0 = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +154,10 @@
 		E3EF91A7254E2D61002ADFB0 /* NameGame */ = {
 			isa = PBXGroup;
 			children = (
+				E31CEFDE254F7578006CFEE8 /* Models */,
 				E3EF91D6254E3833002ADFB0 /* Supporting Files */,
-				E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */,
-				E3F1F5CC254E6DEE0053B11C /* GameView.swift */,
-				E3EF91DD254E386B002ADFB0 /* SplashView.swift */,
+				E31CEFC4254F7340006CFEE8 /* Views */,
+				E31CEFC8254F7349006CFEE8 /* Networking */,
 				E3EF91F9254E3E2A002ADFB0 /* Utilities */,
 			);
 			path = NameGame;
@@ -295,6 +342,11 @@
 			files = (
 				E3EF91F5254E3E23002ADFB0 /* CircleImageView.swift in Sources */,
 				E3EF91AB254E2D61002ADFB0 /* MainMenuView.swift in Sources */,
+				E31CEFC0254F732A006CFEE8 /* ProfileResponse.swift in Sources */,
+				E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */,
+				E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */,
+				E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */,
+				E31CEFE8254F784C006CFEE8 /* ProfileService.swift in Sources */,
 				E3F1F5D2254E85310053B11C /* GameModeType.swift in Sources */,
 				E3EF91A9254E2D61002ADFB0 /* NameGameApp.swift in Sources */,
 				E3F1F5E0254EDF9E0053B11C /* CircularProgressBar.swift in Sources */,

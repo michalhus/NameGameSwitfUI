@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
+    private let viewModel = GameViewModel()
     var gameMode: GameModeType
     
     var body: some View {
@@ -15,7 +16,7 @@ struct GameView: View {
                 List(0..<5) { i in
                     Text("Item - \(i)")
                 }
-                
+                .onAppear{self.viewModel.fetchProfiles()}
             }
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)
             .navigationBarItems(trailing: gameMode.rawValue == "Timed Mode" ?
