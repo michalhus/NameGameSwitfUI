@@ -30,7 +30,7 @@ struct SplashView: View {
     
     func splashDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            withAnimation(Animation.linear(duration: 1.35)) {
+            withAnimation(Animation.linear(duration: 1.00)) {
                 endSplash.toggle()
             }
         }
