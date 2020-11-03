@@ -4,7 +4,6 @@
 //
 //  Created by Michal Hus on 11/1/20.
 //
-// LICENSED by https://marcgg.com/blog/2020/05/06/circular-progressbar-clock-swiftui/
 
 import SwiftUI
 
