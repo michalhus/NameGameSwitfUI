@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainMenuView: View {
+    private let viewModel = GameViewModel()
     var splashImage: Image = Image("splashIcon")
     
     var body: some View {

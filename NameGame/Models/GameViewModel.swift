@@ -11,6 +11,8 @@ import Combine
 class GameViewModel: ObservableObject, Identifiable {
     private let profileService = ProfileService()
     @Published var profileViewModels = [ProfileViewModel]()
+    @Published var gameProfiles = [ProfileViewModel]()
+    @Published var targetProfile: String = ""
     
     var cancellable: AnyCancellable?
     
@@ -19,9 +21,19 @@ class GameViewModel: ObservableObject, Identifiable {
             .sink(receiveCompletion: { completion in
                 print(completion)
             }, receiveValue: { profileResponse in
-                self.profileViewModels = profileResponse.map { ProfileViewModel(profile: $0)}
+                self.profileViewModels = Array(profileResponse
+                                                    .map { ProfileViewModel(profile: $0)}
+                                                    .shuffled()
+                                                    .prefix(upTo: 6))
                 print(self.profileViewModels)
+                self.setTargetProfile()
             })
     }
     
+    func setTargetProfile() {
+        if let randomProfile = profileViewModels.randomElement() {
+            targetProfile = randomProfile.name
+            print(targetProfile)
+        }
+    }
 }

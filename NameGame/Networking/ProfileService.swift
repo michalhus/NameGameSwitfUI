@@ -20,9 +20,13 @@ final class ProfileService {
     }
     
     func fetchProfiles() -> AnyPublisher<[ProfileResponse], Error> {
-        // TODO: force unwrapp fix
-        // TODO: Handle error Case
-        return URLSession.shared.dataTaskPublisher(for: components.url!)
+        
+        guard let url = components.url else {
+          let error = ProfilesError.network(description: "Couldn't create URL")
+          return Fail(error: error).eraseToAnyPublisher()
+        }
+
+        return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: [ProfileResponse].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
