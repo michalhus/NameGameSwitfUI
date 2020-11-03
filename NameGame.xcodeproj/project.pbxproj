@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3053DE1254F8FA2009C3CDB /* ProfilesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3053DE0254F8FA2009C3CDB /* ProfilesError.swift */; };
 		E31CEFC0254F732A006CFEE8 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */; };
 		E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */; };
 		E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */; };
 		E31CEFE8254F784C006CFEE8 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFE7254F784C006CFEE8 /* ProfileService.swift */; };
 		E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */; };
+		E3A0ECD22551872000320E84 /* ProfileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0ECD12551872000320E84 /* ProfileLoader.swift */; };
+		E3CE5925255045F6009CD800 /* AsyncProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE5924255045F6009CD800 /* AsyncProfileView.swift */; };
 		E3EF91A9254E2D61002ADFB0 /* NameGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF91A8254E2D61002ADFB0 /* NameGameApp.swift */; };
 		E3EF91AB254E2D61002ADFB0 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */; };
 		E3EF91AD254E2D63002ADFB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3EF91AC254E2D63002ADFB0 /* Assets.xcassets */; };
@@ -44,11 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3053DE0254F8FA2009C3CDB /* ProfilesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesError.swift; sourceTree = "<group>"; };
 		E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		E31CEFE7254F784C006CFEE8 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesAPI.swift; sourceTree = "<group>"; };
+		E3A0ECD12551872000320E84 /* ProfileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoader.swift; sourceTree = "<group>"; };
+		E3CE5924255045F6009CD800 /* AsyncProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncProfileView.swift; sourceTree = "<group>"; };
 		E3EF91A5254E2D61002ADFB0 /* NameGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3EF91A8254E2D61002ADFB0 /* NameGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGameApp.swift; sourceTree = "<group>"; };
 		E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 				E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */,
 				E3F1F5CC254E6DEE0053B11C /* GameView.swift */,
 				E3EF91DD254E386B002ADFB0 /* SplashView.swift */,
+				E3CE5924255045F6009CD800 /* AsyncProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 		E31CEFC8254F7349006CFEE8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E3053DE0254F8FA2009C3CDB /* ProfilesError.swift */,
 				E31CEFE7254F784C006CFEE8 /* ProfileService.swift */,
 				E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */,
 				E31CEFCC254F7352006CFEE8 /* DTO */,
@@ -127,6 +135,7 @@
 			children = (
 				E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */,
 				E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */,
+				E3A0ECD12551872000320E84 /* ProfileLoader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,12 +355,15 @@
 				E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */,
 				E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */,
 				E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */,
+				E3A0ECD22551872000320E84 /* ProfileLoader.swift in Sources */,
 				E31CEFE8254F784C006CFEE8 /* ProfileService.swift in Sources */,
+				E3CE5925255045F6009CD800 /* AsyncProfileView.swift in Sources */,
 				E3F1F5D2254E85310053B11C /* GameModeType.swift in Sources */,
 				E3EF91A9254E2D61002ADFB0 /* NameGameApp.swift in Sources */,
 				E3F1F5E0254EDF9E0053B11C /* CircularProgressBar.swift in Sources */,
 				E3EF91DE254E386B002ADFB0 /* SplashView.swift in Sources */,
 				E3F1F5F0254EF6660053B11C /* View+Extensions.swift in Sources */,
+				E3053DE1254F8FA2009C3CDB /* ProfilesError.swift in Sources */,
 				E3F1F5CD254E6DEE0053B11C /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

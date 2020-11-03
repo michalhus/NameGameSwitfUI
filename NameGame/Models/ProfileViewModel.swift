@@ -7,15 +7,19 @@
 
 import Foundation
 
-struct ProfileViewModel {
+struct ProfileViewModel: Identifiable {
     private let profile: ProfileResponse
-    
+    var id = UUID()
+
     var name: String {
         return "\(profile.firstName) \(profile.lastName)"
     }
     
     var headshot: String {
-        return "https:\(profile.headshot.url)"
+        if let url = profile.headshot.url {
+            return "https:\(url)"
+        }
+        return ""
     }
     
     init(profile: ProfileResponse) {
