@@ -38,7 +38,7 @@ struct GameView: View {
             }
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)
             .navigationBarItems(trailing: gameMode.rawValue == "Timed Mode" ?
-                                    CountdownView().padding(.trailing, 5) : nil)
+                                    TimerView().padding(.trailing, 5) : nil)
             .phoneOnlyStackNavigationView()
     }
 }
