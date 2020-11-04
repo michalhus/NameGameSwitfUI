@@ -24,12 +24,12 @@ struct CircularProgressBarView: View {
                             lineJoin:.round
                         )
                 )
-                    .foregroundColor(
+                .foregroundColor(
                         (completed() ? Color.red : Color("Primary Blue Progress Bar"))
                 ).animation(
                     .easeInOut(duration: 0.2)
                 )
-        )
+            )
     }
     
     func completed() -> Bool {

@@ -15,7 +15,6 @@ struct AsyncProfileView<Placeholder: View>: View {
     private let placeholder: Placeholder
     private let profile: String
 
-
     init(url: URL, @ViewBuilder placeholder: () -> Placeholder, profile: String) {
         self.placeholder = placeholder()
         _loader = StateObject(wrappedValue: ProfileLoader(url: url))
@@ -33,10 +32,18 @@ struct AsyncProfileView<Placeholder: View>: View {
                         Image("successIcon")
                             .resizable()
                             .opacity(0.6)
+                            .onAppear{
+                                self.viewModel.fetchProfiles()
+                                self.viewModel.score += 1
+                            }
                     } else if tapped && !viewModel.isSelectedCorrect(profile) {
                         Image("failureIcon")
                             .resizable()
                             .opacity(0.6)
+//                        if its .practice mode
+//                            .onAppear{
+//                                self.viewModel.score = 0
+//                            }
                     }
                 })
     }

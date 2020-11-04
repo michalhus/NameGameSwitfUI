@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameView: View {
 
+    @State private var isAlert: Bool = false
     @ObservedObject var viewModel = GameViewModel.shared
     var gameMode: GameModeType
     
@@ -38,8 +39,7 @@ struct GameView: View {
                 }
             }
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)
-            .navigationBarItems(trailing: gameMode.rawValue == "Timed Mode" ?
-                                    TimerView().padding(.trailing, 5) : nil)
+            .navigationBarItems(trailing: gameMode.rawValue == "Timed Mode" ? TimerView(isAlert: $isAlert).padding(.trailing, 5) : nil)
             .phoneOnlyStackNavigationView()
     }
 }

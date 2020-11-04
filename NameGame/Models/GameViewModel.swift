@@ -14,6 +14,7 @@ class GameViewModel: ObservableObject, Identifiable {
     private let profileService = ProfileService()
     @Published var profileViewModels = [ProfileViewModel]()
     @Published var targetProfile: String = ""
+    @Published var score: Int = 0
     
     var cancellable: AnyCancellable?
     
