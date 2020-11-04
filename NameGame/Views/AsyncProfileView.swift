@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct AsyncProfileView<Placeholder: View>: View {
-    @State var showOverlay = false
+    @State var tapped = false
     @ObservedObject private var viewModel = GameViewModel.shared
     @StateObject private var loader: ProfileLoader
     private let placeholder: Placeholder
@@ -25,14 +25,18 @@ struct AsyncProfileView<Placeholder: View>: View {
     var body: some View {
         content
             .onAppear(perform: loader.load)
-            .onTapGesture { self.showOverlay.toggle() }
+            .onTapGesture { self.tapped = true }
             .overlay(
                 VStack {
-                    if self.showOverlay
-                        &&
-                        viewModel.isSelectedCorrect(selectedProfile: self.profile)
+                    if tapped && viewModel.isSelectedCorrect(profile)
                     {
                         Image("successIcon")
+                            .resizable()
+                            .opacity(0.6)
+                    } else if tapped && !viewModel.isSelectedCorrect(profile) {
+                        Image("failureIcon")
+                            .resizable()
+                            .opacity(0.6)
                     }
                 })
     }

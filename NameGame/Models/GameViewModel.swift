@@ -32,13 +32,12 @@ class GameViewModel: ObservableObject, Identifiable {
     }
     
     func setTargetProfile() {
-        if var randomProfile = profileViewModels.randomElement() {
-            randomProfile.isTarget = true
+        if let randomProfile = profileViewModels.randomElement() {
             targetProfile = randomProfile.name
         }
     }
     
-    func isSelectedCorrect(selectedProfile: String) -> Bool {
+    func isSelectedCorrect(_ selectedProfile: String) -> Bool {
         return targetProfile == selectedProfile ? true : false
     }
 }

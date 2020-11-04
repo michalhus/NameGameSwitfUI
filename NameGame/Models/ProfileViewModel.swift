@@ -9,7 +9,6 @@ import Foundation
 
 struct ProfileViewModel: Identifiable {
     private let profile: ProfileResponse
-    var isTarget: Bool
     var id = UUID()
 
     var name: String {
@@ -23,8 +22,7 @@ struct ProfileViewModel: Identifiable {
         return nil
     }
     
-    init(profile: ProfileResponse, _ isTarget: Bool = false) {
+    init(profile: ProfileResponse) {
         self.profile = profile
-        self.isTarget = isTarget
     }
 }
