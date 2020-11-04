@@ -7,44 +7,7 @@
 
 import SwiftUI
 
-let timer = Timer
-    .publish(every: 1, on: .main, in: .common)
-    .autoconnect()
-
-struct Clock: View {
-    var counter: Int
-    var countTo: Int
-
-    var body: some View {
-        VStack {
-            Text(counterToMinutes())
-                .font(.custom("SFProText-Regular", size: 8))
-                .fontWeight(.black)
-        }
-    }
-
-    func counterToMinutes() -> String {
-        let currentTime = countTo - counter
-        let seconds = currentTime % 60
-        let minutes = Int(currentTime / 60)
-
-        return "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
-    }
-
-}
-
-struct ProgressTrack: View {
-    var body: some View {
-        Circle()
-            .fill(Color.clear)
-            .frame(width: 22, height: 22)
-            .overlay(
-                Circle().stroke(Color("Primary Light Blue Progress Bar"))
-        )
-    }
-}
-
-struct ProgressBar: View {
+struct CircularProgressBar: View {
     var counter: Int
     var countTo: Int
     
@@ -75,30 +38,5 @@ struct ProgressBar: View {
     
     func progress() -> CGFloat {
         return (CGFloat(counter) / CGFloat(countTo))
-    }
-}
-
-struct CountdownView: View {
-    @State var counter: Int = 0
-    var countTo: Int = 60
-    
-    var body: some View {
-        VStack{
-            ZStack{
-                ProgressTrack()
-                ProgressBar(counter: counter, countTo: countTo)
-                Clock(counter: counter, countTo: countTo)
-            }
-        }.onReceive(timer) { time in
-            if (self.counter < self.countTo) {
-                self.counter += 1
-            }
-        }
-    }
-}
-
-struct CountdownView_Previews: PreviewProvider {
-    static var previews: some View {
-        CountdownView()
     }
 }

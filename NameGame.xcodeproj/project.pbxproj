@@ -15,6 +15,9 @@
 		E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */; };
 		E3A0ECD22551872000320E84 /* ProfileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A0ECD12551872000320E84 /* ProfileLoader.swift */; };
 		E3CE5925255045F6009CD800 /* AsyncProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE5924255045F6009CD800 /* AsyncProfileView.swift */; };
+		E3D928712552E61A006ADCF2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D928702552E61A006ADCF2 /* TimerView.swift */; };
+		E3D928762552E6D8006ADCF2 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D928752552E6D8006ADCF2 /* Clock.swift */; };
+		E3D9287E2552E709006ADCF2 /* ProgressTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D9287D2552E709006ADCF2 /* ProgressTrack.swift */; };
 		E3EF91A9254E2D61002ADFB0 /* NameGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF91A8254E2D61002ADFB0 /* NameGameApp.swift */; };
 		E3EF91AB254E2D61002ADFB0 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */; };
 		E3EF91AD254E2D63002ADFB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3EF91AC254E2D63002ADFB0 /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 		E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesAPI.swift; sourceTree = "<group>"; };
 		E3A0ECD12551872000320E84 /* ProfileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoader.swift; sourceTree = "<group>"; };
 		E3CE5924255045F6009CD800 /* AsyncProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncProfileView.swift; sourceTree = "<group>"; };
+		E3D928702552E61A006ADCF2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E3D928752552E6D8006ADCF2 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		E3D9287D2552E709006ADCF2 /* ProgressTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrack.swift; sourceTree = "<group>"; };
 		E3EF91A5254E2D61002ADFB0 /* NameGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3EF91A8254E2D61002ADFB0 /* NameGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGameApp.swift; sourceTree = "<group>"; };
 		E3EF91AA254E2D61002ADFB0 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 				E3F1F5CC254E6DEE0053B11C /* GameView.swift */,
 				E3EF91DD254E386B002ADFB0 /* SplashView.swift */,
 				E3CE5924255045F6009CD800 /* AsyncProfileView.swift */,
+				E3D928702552E61A006ADCF2 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +223,8 @@
 				E3F1F5D1254E85310053B11C /* GameModeType.swift */,
 				E3EF91F4254E3E23002ADFB0 /* CircleImageView.swift */,
 				E3F1F5DF254EDF9E0053B11C /* CircularProgressBar.swift */,
+				E3D9287D2552E709006ADCF2 /* ProgressTrack.swift */,
+				E3D928752552E6D8006ADCF2 /* Clock.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -351,11 +360,14 @@
 			files = (
 				E3EF91F5254E3E23002ADFB0 /* CircleImageView.swift in Sources */,
 				E3EF91AB254E2D61002ADFB0 /* MainMenuView.swift in Sources */,
+				E3D9287E2552E709006ADCF2 /* ProgressTrack.swift in Sources */,
+				E3D928762552E6D8006ADCF2 /* Clock.swift in Sources */,
 				E31CEFC0254F732A006CFEE8 /* ProfileResponse.swift in Sources */,
 				E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */,
 				E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */,
 				E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */,
 				E3A0ECD22551872000320E84 /* ProfileLoader.swift in Sources */,
+				E3D928712552E61A006ADCF2 /* TimerView.swift in Sources */,
 				E31CEFE8254F784C006CFEE8 /* ProfileService.swift in Sources */,
 				E3CE5925255045F6009CD800 /* AsyncProfileView.swift in Sources */,
 				E3F1F5D2254E85310053B11C /* GameModeType.swift in Sources */,
