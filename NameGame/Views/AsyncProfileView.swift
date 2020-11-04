@@ -16,12 +16,15 @@ struct AsyncProfileView<Placeholder: View>: View {
     @StateObject private var loader: ProfileLoader
     private let placeholder: Placeholder
     private let profile: String
+    var gameMode: GameModeType
 
-    init(url: URL, @ViewBuilder placeholder: () -> Placeholder, profile: String, isAlert: Binding<Bool>) {
+
+    init(url: URL, @ViewBuilder placeholder: () -> Placeholder, profile: String, isAlert: Binding<Bool>, gameMode: GameModeType) {
         self.placeholder = placeholder()
         _loader = StateObject(wrappedValue: ProfileLoader(url: url))
         self.profile = profile
         self._isAlert = isAlert
+        self.gameMode = gameMode
     }
     
     var body: some View {
@@ -29,6 +32,9 @@ struct AsyncProfileView<Placeholder: View>: View {
             .onAppear(perform: loader.load)
             .onTapGesture { self.tapped = true }
             .overlay(
+                
+//                { if isAlert ? {Text("Text")} : nil }
+                
                 VStack {
                     if tapped && viewModel.isSelectedCorrect(profile)
                     {
@@ -39,18 +45,35 @@ struct AsyncProfileView<Placeholder: View>: View {
                                 self.viewModel.fetchProfiles()
                                 self.viewModel.score += 1
                             }
-                    } else if tapped && !viewModel.isSelectedCorrect(profile) {
+                    // TODO: case switch??? figure out logic first
+                    } else if tapped && !viewModel.isSelectedCorrect(profile) && gameMode.rawValue == "Practice Mode" {
                         
                         Image("failureIcon")
                             .resizable()
                             .opacity(0.6)
                             .onAppear() { isAlert = true }
+                            
                             .alert(isPresented: $isAlert) {
                                 return Alert(title: Text("Game Over"), message: Text("Scored: \(viewModel.score)"), dismissButton: .cancel(Text("OK")) {
-                                                isAlert = false
+                                    self.viewModel.score = 0
                                     self.presentationMode.wrappedValue.dismiss()
                                 })
                             }
+                        
+                        
+                    } else if tapped && !viewModel.isSelectedCorrect(profile) && gameMode.rawValue == "Timed Mode" {
+                        
+                        
+                        // TODO: Fix so the timer affect timed mode for success no t on click
+                        Image("failureIcon")
+                            .resizable()
+                            .opacity(0.6)
+                            .alert(isPresented: $isAlert) {
+                                return Alert(title: Text("Game Over"), message: Text("Scored: \(viewModel.score)"), dismissButton: .cancel(Text("OK")) {
+                                    self.viewModel.score = 0
+                                    self.presentationMode.wrappedValue.dismiss()
+                                })
+                            }                    
                     }
                 })
     }
@@ -66,11 +89,3 @@ struct AsyncProfileView<Placeholder: View>: View {
         }
     }
 }
-//
-//struct AsyncProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        if let url = URL(string: "https://images.ctfassets.net/3cttzl4i3k1h/4Mv2CONANym46UwuuCIgK/cbeb43c93a843a43c07b1de9954795e2/headshot_joel_garrett.jpg"){
-//            AsyncProfileView(url: url, placeholder: { Text("Loading ...") }, profile: "", isAlert: $isAlert)
-//        }
-//    }
-//}

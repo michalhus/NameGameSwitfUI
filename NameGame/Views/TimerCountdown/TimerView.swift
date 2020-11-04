@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-let timer = Timer
-    .publish(every: 1, on: .main, in: .common)
-    .autoconnect()
-
 struct TimerView: View {
-    @Binding var isAlert: Bool
+    
+    @Environment (\.presentationMode) var presentationMode
+    @Binding var isTimeOut: Bool
     @State var counter: Int = 0
     var countTo: Int = 5
+    let timer = Timer
+        .publish(every: 1, on: .main, in: .common)
+        .autoconnect()
+
     
     var body: some View {
         VStack{
@@ -22,20 +24,21 @@ struct TimerView: View {
                 ProgressTrackView()
                 CircularProgressBarView(counter: counter, countTo: countTo)
                 ClockView(counter: counter, countTo: countTo)
-                
-//                isAlert = true
-                
             }
         }.onReceive(timer) { time in
             if (self.counter < self.countTo) {
                 self.counter += 1
             }
-//            if (counter == countTo) {
-//                return isAlert = true
-//            }
-        }.alert(isPresented: $isAlert) {
-            return Alert(title: Text("Game Over"), message: Text("Scored:"), dismissButton: .cancel(Text("OK")) { isAlert = false }
-            )
+            if (counter == countTo) {
+                self.timer.upstream.connect().cancel()
+                return isTimeOut = true
+            }
         }
+//        .alert(isPresented: $isTimeOut) {
+//            return Alert(title: Text("Game Over"), message: Text("Scored: "), dismissButton: .cancel(Text("OK")) {
+////                self.viewModel.score = 0
+//                self.presentationMode.wrappedValue.dismiss()
+//            })
+//        }
     }
 }
