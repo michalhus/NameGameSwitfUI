@@ -12,7 +12,6 @@ let timer = Timer
     .autoconnect()
 
 struct TimerView: View {
-    @Environment(\.presentationMode) var presentationMode
     @Binding var isAlert: Bool
     @State var counter: Int = 0
     var countTo: Int = 5
@@ -23,37 +22,20 @@ struct TimerView: View {
                 ProgressTrackView()
                 CircularProgressBarView(counter: counter, countTo: countTo)
                 ClockView(counter: counter, countTo: countTo)
+                
+//                isAlert = true
+                
             }
         }.onReceive(timer) { time in
             if (self.counter < self.countTo) {
                 self.counter += 1
             }
-            if (counter == countTo) {
-                isAlert = true
-            }
+//            if (counter == countTo) {
+//                return isAlert = true
+//            }
         }.alert(isPresented: $isAlert) {
-            Alert(title: Text("Game Over"), message: Text("Scored:"), dismissButton: .default(Text("OK"))
-                    { print("woowow")}
+            return Alert(title: Text("Game Over"), message: Text("Scored:"), dismissButton: .cancel(Text("OK")) { isAlert = false }
             )
         }
     }
 }
-
-//struct TimerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TimerView(isAlert: true)
-//    }
-//}
-
-
-///struct PlayButton: View {
-//    @Binding var isPlaying: Bool
-//
-//    var body: some View {
-//        Button(action: {
-//            self.isPlaying.toggle()
-//        }) {
-//            Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-//        }
-//    }
-//}

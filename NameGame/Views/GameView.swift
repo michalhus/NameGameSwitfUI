@@ -30,7 +30,8 @@ struct GameView: View {
                                 AsyncProfileView(
                                         url: url,
                                         placeholder: { PlaceholderView() },
-                                        profile: profile.name
+                                        profile: profile.name,
+                                        isAlert: $isAlert
                                 )
                                 .frame(idealHeight: UIScreen.main.bounds.width / 2)
                             }
@@ -41,11 +42,5 @@ struct GameView: View {
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)
             .navigationBarItems(trailing: gameMode.rawValue == "Timed Mode" ? TimerView(isAlert: $isAlert).padding(.trailing, 5) : nil)
             .phoneOnlyStackNavigationView()
-    }
-}
-
-struct GameView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView(gameMode: .practiceMode)
     }
 }

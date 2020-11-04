@@ -9,18 +9,21 @@ import SwiftUI
 import Combine
 
 struct AsyncProfileView<Placeholder: View>: View {
+    @Environment (\.presentationMode) var presentationMode
+    @Binding var isAlert: Bool
     @State var tapped = false
     @ObservedObject private var viewModel = GameViewModel.shared
     @StateObject private var loader: ProfileLoader
     private let placeholder: Placeholder
     private let profile: String
 
-    init(url: URL, @ViewBuilder placeholder: () -> Placeholder, profile: String) {
+    init(url: URL, @ViewBuilder placeholder: () -> Placeholder, profile: String, isAlert: Binding<Bool>) {
         self.placeholder = placeholder()
         _loader = StateObject(wrappedValue: ProfileLoader(url: url))
         self.profile = profile
+        self._isAlert = isAlert
     }
-
+    
     var body: some View {
         content
             .onAppear(perform: loader.load)
@@ -32,18 +35,22 @@ struct AsyncProfileView<Placeholder: View>: View {
                         Image("successIcon")
                             .resizable()
                             .opacity(0.6)
-                            .onAppear{
+                            .onAppear {
                                 self.viewModel.fetchProfiles()
                                 self.viewModel.score += 1
                             }
                     } else if tapped && !viewModel.isSelectedCorrect(profile) {
+                        
                         Image("failureIcon")
                             .resizable()
                             .opacity(0.6)
-//                        if its .practice mode
-//                            .onAppear{
-//                                self.viewModel.score = 0
-//                            }
+                            .onAppear() { isAlert = true }
+                            .alert(isPresented: $isAlert) {
+                                return Alert(title: Text("Game Over"), message: Text("Scored: \(viewModel.score)"), dismissButton: .cancel(Text("OK")) {
+                                                isAlert = false
+                                    self.presentationMode.wrappedValue.dismiss()
+                                })
+                            }
                     }
                 })
     }
@@ -59,11 +66,11 @@ struct AsyncProfileView<Placeholder: View>: View {
         }
     }
 }
-
-struct AsyncProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        if let url = URL(string: "https://images.ctfassets.net/3cttzl4i3k1h/4Mv2CONANym46UwuuCIgK/cbeb43c93a843a43c07b1de9954795e2/headshot_joel_garrett.jpg"){
-            AsyncProfileView(url: url, placeholder: { Text("Loading ...") }, profile: "")
-        }
-    }
-}
+//
+//struct AsyncProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        if let url = URL(string: "https://images.ctfassets.net/3cttzl4i3k1h/4Mv2CONANym46UwuuCIgK/cbeb43c93a843a43c07b1de9954795e2/headshot_joel_garrett.jpg"){
+//            AsyncProfileView(url: url, placeholder: { Text("Loading ...") }, profile: "", isAlert: $isAlert)
+//        }
+//    }
+//}
