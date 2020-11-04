@@ -1,5 +1,5 @@
 //
-//  Clock.swift
+//  ClockView.swift
 //  NameGame
 //
 //  Created by Michal Hus on 11/4/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Clock: View {
+struct ClockView: View {
     var counter: Int
     var countTo: Int
 

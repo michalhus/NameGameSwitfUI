@@ -1,5 +1,5 @@
 //
-//  CircularProgressBar.swift
+//  CircularProgressBarView.swift
 //  NameGame
 //
 //  Created by Michal Hus on 11/1/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircularProgressBar: View {
+struct CircularProgressBarView: View {
     var counter: Int
     var countTo: Int
     

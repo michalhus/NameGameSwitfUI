@@ -1,5 +1,5 @@
 //
-//  ProgressTrack.swift
+//  ProgressTrackView.swift
 //  NameGame
 //
 //  Created by Michal Hus on 11/4/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressTrack: View {
+struct ProgressTrackView: View {
     var body: some View {
         Circle()
             .fill(Color.clear)

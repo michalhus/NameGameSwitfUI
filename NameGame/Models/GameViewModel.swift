@@ -9,9 +9,10 @@ import Foundation
 import Combine
 
 class GameViewModel: ObservableObject, Identifiable {
+    
+    static let shared = GameViewModel()
     private let profileService = ProfileService()
     @Published var profileViewModels = [ProfileViewModel]()
-    @Published var gameProfiles = [ProfileViewModel]()
     @Published var targetProfile: String = ""
     
     var cancellable: AnyCancellable?
@@ -22,18 +23,22 @@ class GameViewModel: ObservableObject, Identifiable {
                 print(completion)
             }, receiveValue: { profileResponse in
                 self.profileViewModels = Array(profileResponse
-                                                    .map { ProfileViewModel(profile: $0)}
-                                                    .shuffled()
-                                                    .prefix(upTo: 6))
-                print(self.profileViewModels)
+                                                .filter { $0.headshot.url != nil }
+                                                .map { ProfileViewModel(profile: $0)}
+                                                .shuffled()
+                                                .prefix(upTo: 6))
                 self.setTargetProfile()
             })
     }
     
     func setTargetProfile() {
-        if let randomProfile = profileViewModels.randomElement() {
+        if var randomProfile = profileViewModels.randomElement() {
+            randomProfile.isTarget = true
             targetProfile = randomProfile.name
-            print(targetProfile)
         }
+    }
+    
+    func isSelectedCorrect(selectedProfile: String) -> Bool {
+        return targetProfile == selectedProfile ? true : false
     }
 }

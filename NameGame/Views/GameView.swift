@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct GameView: View {
-    @ObservedObject private var viewModel = GameViewModel()
+
+    @ObservedObject var viewModel = GameViewModel.shared
     var gameMode: GameModeType
     
     var body: some View {
@@ -16,24 +17,24 @@ struct GameView: View {
                 Text(viewModel.targetProfile)
                     .onAppear{self.viewModel.fetchProfiles()}
                     .font(.largeTitle)
-
+                    .padding()
+         
                 let columns: [GridItem] =
                         Array(repeating: .init(.flexible()), count: 2)
                 
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(viewModel.profileViewModels) { profile in
-                            if let url = URL(string: profile.headshot) {
+                            if let headshot = profile.headshot, let url = URL(string: headshot) { 
                                 AsyncProfileView(
                                         url: url,
-                                        placeholder: { Text("Loading ...") }
-                                     )
+                                        placeholder: { PlaceholderView() },
+                                        profile: profile.name
+                                )
                                 .frame(idealHeight: UIScreen.main.bounds.width / 2)
                             }
                         }
-                    }.font(.largeTitle).onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
-                        print("Tapped on the")
-                    })
+                    }
                 }
             }
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)

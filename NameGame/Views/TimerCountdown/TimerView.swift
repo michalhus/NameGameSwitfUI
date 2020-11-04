@@ -18,9 +18,9 @@ struct TimerView: View {
     var body: some View {
         VStack{
             ZStack{
-                ProgressTrack()
-                CircularProgressBar(counter: counter, countTo: countTo)
-                Clock(counter: counter, countTo: countTo)
+                ProgressTrackView()
+                CircularProgressBarView(counter: counter, countTo: countTo)
+                ClockView(counter: counter, countTo: countTo)
             }
         }.onReceive(timer) { time in
             if (self.counter < self.countTo) {
