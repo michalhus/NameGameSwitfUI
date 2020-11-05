@@ -34,11 +34,5 @@ struct TimerView: View {
                 return isTimeOut = true
             }
         }
-//        .alert(isPresented: $isTimeOut) {
-//            return Alert(title: Text("Game Over"), message: Text("Scored: "), dismissButton: .cancel(Text("OK")) {
-////                self.viewModel.score = 0
-//                self.presentationMode.wrappedValue.dismiss()
-//            })
-//        }
     }
 }
