@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ProgressTrackView: View {
+    
     var body: some View {
         Circle()
             .fill(Color.clear)
             .frame(width: 22, height: 22)
             .overlay(
-                Circle().stroke(Color("Primary Light Blue Progress Bar"))
+                Circle().stroke(Color(CustomColor.primaryLightBlueProgress.rawValue))
         )
     }
 }

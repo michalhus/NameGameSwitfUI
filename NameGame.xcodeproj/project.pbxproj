@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E3053DE1254F8FA2009C3CDB /* ProfilesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3053DE0254F8FA2009C3CDB /* ProfilesError.swift */; };
+		E30A9B2C255507C20077CD20 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A9B2B255507C20077CD20 /* Style.swift */; };
 		E31CEFC0254F732A006CFEE8 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */; };
 		E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */; };
 		E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		E3053DE0254F8FA2009C3CDB /* ProfilesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesError.swift; sourceTree = "<group>"; };
+		E30A9B2B255507C20077CD20 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		E31CEFBF254F732A006CFEE8 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F1F5D1254E85310053B11C /* GameModeType.swift */,
+				E30A9B2B255507C20077CD20 /* Style.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				E3D928762552E6D8006ADCF2 /* ClockView.swift in Sources */,
 				E31CEFC0254F732A006CFEE8 /* ProfileResponse.swift in Sources */,
 				E31CEFED254F7A48006CFEE8 /* ProfilesAPI.swift in Sources */,
+				E30A9B2C255507C20077CD20 /* Style.swift in Sources */,
 				E31CEFE3254F7592006CFEE8 /* GameViewModel.swift in Sources */,
 				E31CEFD1254F73B9006CFEE8 /* ProfileViewModel.swift in Sources */,
 				E3A0ECD22551872000320E84 /* ProfileLoader.swift in Sources */,

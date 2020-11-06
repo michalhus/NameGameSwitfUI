@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CircularProgressBarView: View {
+    
     var counter: Int
     var countTo: Int
     
@@ -25,7 +26,7 @@ struct CircularProgressBarView: View {
                         )
                 )
                 .foregroundColor(
-                        (completed() ? Color.red : Color("Primary Blue Progress Bar"))
+                        (completed() ? Color.red : Color(CustomColor.primaryLightBlueProgress.rawValue))
                 ).animation(
                     .easeInOut(duration: 0.2)
                 )

@@ -43,5 +43,6 @@ struct GameView: View {
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)
             .navigationBarItems(trailing: gameMode == GameModeType.timedMode ? TimerView(isTimeOut: $isAlert).padding(.trailing, 5) : nil)
             .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarHidden(true)
     }
 }

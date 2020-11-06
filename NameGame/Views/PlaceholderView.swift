@@ -8,16 +8,11 @@
 import SwiftUI
 
 struct PlaceholderView: View {
+    
     var body: some View {
         VStack {
             ProgressView().padding()
             Text("Loading ...")
         }
-    }
-}
-
-struct PlaceholderView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlaceholderView()
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct ProfileViewModel: Identifiable {
+    
     private let profile: ProfileResponse
     var id = UUID()
 

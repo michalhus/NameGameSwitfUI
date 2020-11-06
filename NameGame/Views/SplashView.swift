@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct SplashView: View {
+    
     @State var endSplash: Bool = false
     var splashImage: Image = Image("splashIcon")
     
     var body: some View {
                                 
             ZStack {
-                Color("Primary Dark Blue").ignoresSafeArea()
+                Color(CustomColor.primaryDarkBlue.rawValue).ignoresSafeArea()
                 CircleImageView(image: splashImage)
                 
                 if endSplash {
-                    MainMenuView()
+                    MainMenuView().navigationViewStyle(StackNavigationViewStyle())
+                        .navigationBarHidden(true)
                 }
             }
             .ignoresSafeArea(.all, edges: .all)
@@ -26,6 +28,8 @@ struct SplashView: View {
                 splashDelay()
             })
             .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarHidden(true)
+
     }
     
     func splashDelay() {

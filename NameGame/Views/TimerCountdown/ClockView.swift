@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ClockView: View {
+    
     var counter: Int
     var countTo: Int
 
     var body: some View {
         VStack {
             Text(counterToMinutes())
-                .font(.custom("SFProText-Regular", size: 8))
+                .font(.custom(CustomFont.proTextRegular.rawValue, size: 8))
                 .fontWeight(.black)
         }
     }

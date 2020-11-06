@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct AsyncProfileView<Placeholder: View>: View {
+    
     @Environment (\.presentationMode) var presentationMode
     @Binding var isAlert: Bool
     @State var initialProfile: Bool = true

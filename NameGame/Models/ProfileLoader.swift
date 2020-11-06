@@ -10,6 +10,7 @@ import Combine
 import SwiftUI
 
 class ProfileLoader: ObservableObject {
+    
     @Published var image: UIImage?
     private let url: URL
     private var cancellable: AnyCancellable?
