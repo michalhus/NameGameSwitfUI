@@ -21,7 +21,10 @@ class GameViewModel: ObservableObject, Identifiable {
     func fetchProfiles() {
         cancellable = profileService.fetchProfiles()
             .sink(receiveCompletion: { completion in
-                print(completion)
+                switch completion {
+                case .failure(let error): print("Error \(error)")
+                case .finished: print("Publisher is finished")
+                }
             }, receiveValue: { profileResponse in
                 self.profileViewModels = Array(profileResponse
                                                 .filter { $0.headshot.url != nil }

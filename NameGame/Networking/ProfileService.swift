@@ -25,7 +25,7 @@ final class ProfileService {
           let error = ProfilesError.network(description: "Couldn't create URL")
           return Fail(error: error).eraseToAnyPublisher()
         }
-
+        
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: [ProfileResponse].self, decoder: JSONDecoder())

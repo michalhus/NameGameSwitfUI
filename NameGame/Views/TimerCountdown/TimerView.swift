@@ -12,7 +12,7 @@ struct TimerView: View {
     @Environment (\.presentationMode) var presentationMode
     @Binding var isTimeOut: Bool
     @State var counter: Int = 0
-    var countTo: Int = 5
+    var countTo: Int = 60
     let timer = Timer
         .publish(every: 1, on: .main, in: .common)
         .autoconnect()

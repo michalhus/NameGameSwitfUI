@@ -30,7 +30,6 @@
 		E3F1F5CD254E6DEE0053B11C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1F5CC254E6DEE0053B11C /* GameView.swift */; };
 		E3F1F5D2254E85310053B11C /* GameModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1F5D1254E85310053B11C /* GameModeType.swift */; };
 		E3F1F5E0254EDF9E0053B11C /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1F5DF254EDF9E0053B11C /* CircularProgressBarView.swift */; };
-		E3F1F5F0254EF6660053B11C /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1F5EF254EF6660053B11C /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +79,6 @@
 		E3F1F5CC254E6DEE0053B11C /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		E3F1F5D1254E85310053B11C /* GameModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeType.swift; sourceTree = "<group>"; };
 		E3F1F5DF254EDF9E0053B11C /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
-		E3F1F5EF254EF6660053B11C /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +232,6 @@
 		E3EF91F9254E3E2A002ADFB0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E3F1F5EF254EF6660053B11C /* View+Extensions.swift */,
 				E3F1F5D1254E85310053B11C /* GameModeType.swift */,
 			);
 			path = Utilities;
@@ -385,7 +382,6 @@
 				E3EF91A9254E2D61002ADFB0 /* NameGameApp.swift in Sources */,
 				E3F1F5E0254EDF9E0053B11C /* CircularProgressBarView.swift in Sources */,
 				E3EF91DE254E386B002ADFB0 /* SplashView.swift in Sources */,
-				E3F1F5F0254EF6660053B11C /* View+Extensions.swift in Sources */,
 				E3053DE1254F8FA2009C3CDB /* ProfilesError.swift in Sources */,
 				E3D928952552F173006ADCF2 /* PlaceholderView.swift in Sources */,
 				E3F1F5CD254E6DEE0053B11C /* GameView.swift in Sources */,

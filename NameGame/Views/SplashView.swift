@@ -25,7 +25,7 @@ struct SplashView: View {
             .onAppear(perform: {
                 splashDelay()
             })
-            .phoneOnlyStackNavigationView()
+            .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func splashDelay() {
@@ -34,13 +34,5 @@ struct SplashView: View {
                 endSplash.toggle()
             }
         }
-    }
-}
-
-struct SplashView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashView()
-            .previewDevice("iPhone 11 Pro Max")
-            .previewLayout(.device)
     }
 }

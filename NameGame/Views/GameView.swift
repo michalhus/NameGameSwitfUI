@@ -38,10 +38,10 @@ struct GameView: View {
                             }
                         }
                     }
-                }
+                }.padding()
             }
             .navigationBarTitle(Text(gameMode.rawValue), displayMode: .inline)
-            .navigationBarItems(trailing: gameMode.rawValue == "Timed Mode" ? TimerView(isTimeOut: $isAlert).padding(.trailing, 5) : nil)
-            .phoneOnlyStackNavigationView()
+            .navigationBarItems(trailing: gameMode == GameModeType.timedMode ? TimerView(isTimeOut: $isAlert).padding(.trailing, 5) : nil)
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }

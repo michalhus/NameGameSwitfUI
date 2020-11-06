@@ -32,7 +32,7 @@ struct MainMenuView: View {
                             .padding(12)
                         
                         NavigationLink(destination: GameView(gameMode: GameModeType.practiceMode)) {
-                            Text("Practice Mode")
+                            Text(GameModeType.practiceMode.rawValue)
                                 .foregroundColor(.white)
                                 .frame(width: 359, height: 56, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .background(Color("Primary Blue Button"))
@@ -41,7 +41,7 @@ struct MainMenuView: View {
                         }
                         
                         NavigationLink(destination: GameView(gameMode: GameModeType.timedMode)) {
-                            Text("Timed Mode")
+                            Text(GameModeType.timedMode.rawValue)
                                 .foregroundColor(.white)
                                 .frame(width: 359, height: 56, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .background(Color("Primary Blue Button"))
@@ -51,7 +51,6 @@ struct MainMenuView: View {
                     }
                     .padding()
                 }
-                .navigationBarHidden(true)
             }
         }
     }

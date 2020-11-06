@@ -11,7 +11,7 @@ import Combine
 struct AsyncProfileView<Placeholder: View>: View {
     @Environment (\.presentationMode) var presentationMode
     @Binding var isAlert: Bool
-    @State var initialProflie: Bool = true
+    @State var initialProfile: Bool = true
     @State var tapped = false
     @ObservedObject private var viewModel = GameViewModel.shared
     @StateObject private var loader: ProfileLoader
@@ -31,101 +31,54 @@ struct AsyncProfileView<Placeholder: View>: View {
     var body: some View {
         content
             .onAppear(perform: loader.load)
-//            .overlay(
-//                VStack {
-//
-//
-//                    if isAlert {
-////                        print("true")
-//                    }
-//
-//
-//                    if tapped && viewModel.isSelectedCorrect(profile)
-//                    {
-//
-//                        Image("successIcon")
-//                            .resizable()
-//                            .opacity(0.6)
-//                            .onAppear {
-//                                self.viewModel.fetchProfiles()
-//                                self.viewModel.score += 1
-//                            }
-//
-//
-//                    } else if tapped && !viewModel.isSelectedCorrect(profile){
-//                        Image("failureIcon")
-//                            .resizable()
-//                            .opacity(0.6)
-//                            .onAppear() {
-//                                if gameMode.rawValue == "Practice Mode" {
-//                                    isAlert = true
-//                                }
-//                            }
-//                    }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//                }
-//            )
-            .alert(isPresented: $isAlert) {
-                return Alert(title: Text("Game Over"), message: Text("Scored: \(viewModel.score)"), dismissButton: .cancel(Text("OK")) {
-                    self.viewModel.score = 0
-                    self.presentationMode.wrappedValue.dismiss()
-                })
-            }
-    }
+     }
 
     var content: some View {
         Group {
             if loader.image != nil {
                 Image(uiImage: loader.image!)
                     .resizable()
+                    .clipShape(Circle())
                     .onTapGesture {
                         self.tapped = true
-                        self.initialProflie = true
+                        self.initialProfile = true
                     }
                     .overlay(
                         VStack {
-                            
-                            
-                            if isAlert {}
-                            
-                            
                             if self.tapped && viewModel.isSelectedCorrect(profile)
                             {
                                 
                                 Image("successIcon")
                                     .resizable()
                                     .opacity(0.6)
+                                    .clipShape(Circle())
                                     .onAppear {
-                                        self.viewModel.fetchProfiles()
                                         self.viewModel.score += 1
-                                        self.initialProflie = false
-                                    }.onChange(of: initialProflie) { newValue in
-                                        print("Name changed to \(initialProflie)!")
+                                        self.initialProfile = false
+                                    }.onChange(of: initialProfile) { newValue in
+                                        self.viewModel.fetchProfiles()
                                     }
+
                                 
-                            } else if self.tapped && !viewModel.isSelectedCorrect(profile) && initialProflie {
+                            } else if self.tapped && !viewModel.isSelectedCorrect(profile) && initialProfile {
                                 Image("failureIcon")
                                     .resizable()
+                                    .clipShape(Circle())
                                     .opacity(0.6)
                                     .onAppear() {
-                                        if gameMode.rawValue == "Practice Mode" {
+                                        if gameMode == GameModeType.practiceMode {
                                             isAlert = true
                                         }
                                     }
                             }
                         }
                     )
+                    .alert(isPresented: $isAlert) {
+                        return Alert(title: Text("Game Over"), message: Text("Scored: \(viewModel.score)"), dismissButton: .cancel(Text("OK")) {
+                            self.viewModel.score = 0
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
+                    }
             } else {
                 placeholder
             }

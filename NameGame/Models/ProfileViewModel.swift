@@ -16,10 +16,10 @@ struct ProfileViewModel: Identifiable {
     }
     
     var headshot: String? {
-        if let url = profile.headshot.url {
-            return "https:\(url)"
+        guard let url = profile.headshot.url else {
+            return nil
         }
-        return nil
+        return "https:\(url)"
     }
     
     init(profile: ProfileResponse) {
