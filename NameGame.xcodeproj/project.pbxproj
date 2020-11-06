@@ -149,6 +149,7 @@
 		E31CEFC8254F7349006CFEE8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E3A0ECD12551872000320E84 /* ProfileLoader.swift */,
 				E3053DE0254F8FA2009C3CDB /* ProfilesError.swift */,
 				E31CEFE7254F784C006CFEE8 /* ProfileService.swift */,
 				E31CEFEC254F7A48006CFEE8 /* ProfilesAPI.swift */,
@@ -170,7 +171,6 @@
 			children = (
 				E31CEFD0254F73B9006CFEE8 /* ProfileViewModel.swift */,
 				E31CEFE2254F7592006CFEE8 /* GameViewModel.swift */,
-				E3A0ECD12551872000320E84 /* ProfileLoader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

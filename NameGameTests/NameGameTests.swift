@@ -18,16 +18,14 @@ class NameGameTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testProfile() throws {
+        
+        let url = Headshot(url: "\\google.com")
+        let profileResponseStub = ProfileResponse(firstName: "Mike", lastName: "Waga", headshot: url)
+        let profileViewModelStub = ProfileViewModel(profile: profileResponseStub)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertEqual(profileViewModelStub.name, "Mike Waga")
+        XCTAssertEqual(profileViewModelStub.headshot, "https:\\google.com")
     }
-
+    
 }
