@@ -20,6 +20,7 @@ struct MainMenuView: View {
                 
                 VStack {
                     CircleImageView(image: splashImage).padding(.top, 2)
+                        .accessibility(identifier: "game-icon")
                     
                     VStack {
                         Text("Try matching the WillowTree employee to their photo")
@@ -30,6 +31,7 @@ struct MainMenuView: View {
                             .multilineTextAlignment(.center)
                             .frame(width: 281.0, height: 76.0)
                             .padding(0)
+                            .accessibility(identifier: "intro-message-text")
                         
                         NavigationLink(destination: GameView(gameMode: GameModeType.practiceMode)) {
                             Text(GameModeType.practiceMode.rawValue)
@@ -38,6 +40,7 @@ struct MainMenuView: View {
                                 .background(Color(CustomColor.primaryBlueBtn.rawValue))
                                 .cornerRadius(14)
                                 .padding(.bottom, 2)
+                                .accessibility(identifier: "practice-mode-button")
                         }
                         
                         NavigationLink(destination: GameView(gameMode: GameModeType.timedMode)) {
@@ -47,6 +50,7 @@ struct MainMenuView: View {
                                 .background(Color(CustomColor.primaryBlueBtn.rawValue))
                                 .cornerRadius(14)
                                 .padding(.bottom, 2)
+                                .accessibility(identifier: "timed-mode-button")
                         }
                     }
                     .padding(.bottom, 6)
